@@ -1,0 +1,31 @@
+.jarvis-panel {
+  display: flex; align-items: center; gap: 24px; padding: 20px 40px; margin: 20px 40px 0;
+  background: linear-gradient(135deg, rgba(0,217,255,0.05), rgba(255,215,0,0.02));
+  border: 1px solid rgba(0,217,255,0.2); border-radius: 16px;
+  backdrop-filter: blur(12px); flex-wrap: wrap;
+}
+
+.jarvis-orb { position: relative; width: 70px; height: 70px; flex-shrink: 0; }
+.orb-core { position: absolute; inset: 20px; background: radial-gradient(circle, #fff, #00d9ff); border-radius: 50%; box-shadow: 0 0 20px #00d9ff, 0 0 40px #00d9ff; animation: pulse 2s ease-in-out infinite; }
+.orb-ring { position: absolute; inset: 0; border: 2px solid #00d9ff; border-radius: 50%; opacity: 0.5; }
+.ring1 { animation: rotate 4s linear infinite; }
+.ring2 { inset: 8px; animation: rotate 3s linear infinite reverse; border-color: #ffd700; }
+.ring3 { inset: 16px; animation: rotate 2s linear infinite; }
+
+.jarvis-orb.speaking .orb-core { animation: speaking-pulse 0.6s ease-in-out infinite; }
+.jarvis-orb.listening .orb-core { background: radial-gradient(circle, #fff, #ff4757); box-shadow: 0 0 20px #ff4757, 0 0 40px #ff4757; }
+
+@keyframes speaking-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+
+.jarvis-text { flex: 1; min-width: 200px; }
+.jarvis-label { font-family: 'Orbitron'; color: #ffd700; font-size: 13px; letter-spacing: 3px; }
+.jarvis-message { color: #eef1f8; margin-top: 6px; font-size: 15px; min-height: 22px; }
+
+.jarvis-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.mic-btn { background: rgba(0,217,255,0.1); border: 1px solid #00d9ff; color: #00d9ff; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: .3s; }
+.mic-btn.active { background: #ff4757; border-color: #ff4757; color: #fff; animation: pulse-btn 1s infinite; }
+@keyframes pulse-btn { 0%,100% { box-shadow: 0 0 0 0 rgba(255,71,87,0.5); } 50% { box-shadow: 0 0 0 10px rgba(255,71,87,0); } }
+
+.jarvis-form { display: flex; gap: 8px; }
+.jarvis-form input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #eef1f8; padding: 10px 14px; border-radius: 20px; width: 200px; }
+.jarvis-form button { background: #ffd700; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: 700; }
